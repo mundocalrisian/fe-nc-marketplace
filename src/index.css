@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Dosis", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+html{
+    background-color: #eee;
+}
+
+nav{
+    display: flex;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    border-bottom:solid 2px #fff;
+}
+
+nav ul{
+    display: flex;
+    list-style: none;
+    width: 70%;
+    justify-content: space-between;
+}
+
+ul > li{
+    font-size: 2em;
+}
+
+.pbgm-logo{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+header > *{
+    font-size: 2em;
+}
+.pbgm-logo > *{
+    font-size: 8em;
+}
+.p{
+    color: red;
+}
+.b{
+    color: blue;
+}
+.g{
+    color: orange;
+}
+.m{
+    color: green;
+}
