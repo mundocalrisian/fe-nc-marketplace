@@ -1,5 +1,9 @@
-export default function ItemCard(){
+export default function ItemCard({item}){
+    console.log(item)
     return(
-        <h2>Item card!</h2>
+        <div>
+            <li>{item.item_name}</li>
+
+        </div>
     )
 }
