@@ -1,4 +1,5 @@
-import penceToPounds from "../utils/utils";
+import penceToPounds from "../utils/utils"
+import {Link} from "react-router-dom"
 
 export default function ItemCard({item}){
     return(

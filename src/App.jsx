@@ -21,9 +21,9 @@ function App () {
           <Route path='/categories/:category_name' element={<CategoriesList/>}/>
           <Route path='/sell' element={<SellItem/>}/>
           <Route path='/user' element={<UserAccount/>}/>
+          <Route path='/items/:item_id' element={<SingleItem/>}/> 
         </Routes>
         
-        <SingleItem/> 
         
       </section>
     </>
