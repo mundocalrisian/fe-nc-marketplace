@@ -22,3 +22,12 @@ export const getAllItems = () =>{
         })
     )
 }
+
+export const postItem = (postObj) =>{
+    return(
+        marketPlaceAPI.post("/items", postObj)
+        .then((response)=>{
+            return response.data;
+        })
+    )
+}
