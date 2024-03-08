@@ -1,6 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Select from "react-select"
 import { postItem } from "../utils/api"
+import ItemCard from "./Item-card"
 
 export default function SellItem() {
     const [itemName, setItemName ] = useState("")
@@ -8,12 +9,14 @@ export default function SellItem() {
     const [itemImgUrl, setItemImgUrl] = useState("")
     const [itemPrice, setItemPrice] = useState("")
     const [categoryName, setCategoryName] = useState("")
+    const [listedItem, setListedItem] = useState({})
 
     const options = [
         {value: "Electronics", label: "Electronics"},
         {value: "Household", label: "Household"},
         {value: "Clothing", label: "Clothing"}
     ]
+
     function handleSubmit(event){
         event.preventDefault();
         const postObj = {
@@ -24,7 +27,24 @@ export default function SellItem() {
             "category_name": categoryName
         }
         postItem(postObj)
+        .then((response) => {
+            console.log(response, "response")
+            setListedItem(response.item)
+            setItemName("")
+            setItemDescription("")
+            setItemImgUrl("")
+            setItemPrice("")
+            setCategoryName({value: "placeholder", label: "Please select a category"})
+            
+        })
+        .catch((err) => {
+            console.log(err, "error in the Post component");
+        })
     }
+
+    useEffect(() => {
+
+    }, [listedItem])
 
     return (
     <>
@@ -60,6 +80,14 @@ export default function SellItem() {
             />
             <button type="submit">List item!</button>
         </form>
+        <div>
+            {Object.keys(listedItem).length !== 0 &&
+            <>
+            <p>Item listed successfully!</p>
+            <ItemCard item = {listedItem}/> 
+            </> 
+           }
+        </div>
     </>
     )
 }
